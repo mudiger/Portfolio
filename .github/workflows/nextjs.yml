@@ -115,7 +115,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v2
         with:
-          images: saarthak/Portfolio_Docker
+          images: mudigeredocker/Portfolio_Docker
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
