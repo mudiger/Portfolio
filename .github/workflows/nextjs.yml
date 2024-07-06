@@ -127,7 +127,7 @@
 #           tags: ${{ steps.meta.outputs.tags }}
 #           labels: ${{ steps.meta.outputs.labels }}
 #---------------------------------------------------------------------------------------------------------
-name: Build and Push Golang Image to AWS ECR
+name: Build and Push Image to AWS ECR
 on:
   push:
     branches: [main]
@@ -155,6 +155,9 @@ jobs:
       #   run: |
       #     bash ./build/git_update.sh -v major
 
+      - name: Print ECR registry
+      run: echo "ECR Registry: ${{ steps.login-ecr.outputs.registry }}"
+      
       - name: Build, Tag, and Push the Image to Amazon ECR
         id: build-image
         env:
