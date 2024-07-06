@@ -157,6 +157,5 @@ jobs:
           ECR_REPOSITORY: portfolio
           IMAGE_TAG: latest
         run: |
-          echo "ECR Registry: ${{ steps.login-ecr.outputs.registry }}"
-          docker build -t $ECR_REPOSITORY:$IMAGE_TAG .
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REPOSITORY:$IMAGE_TAG
